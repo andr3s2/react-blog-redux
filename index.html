@@ -16,6 +16,12 @@
 <script type="text/babel">
 
 
+    function Hola(props){
+        return (
+                <h1 id="title" onClick={props.onClick}> Hola, {props.name} {props.count} </h1>
+                )
+    }
+
     class MiComponente extends React.Component {
 
         constructor(props) {
@@ -31,8 +37,15 @@
         }
 
         render() {
+
             const name = this.props.name;
-            return (<h1 id="title" onClick={this.handleClick}> Hola, {name} {this.state.count} </h1>);
+            console.log(name);
+            return (
+                    <Hola name={this.props.name}
+                    count={this.state.count}
+                    onClick={this.handleClick}
+                    />
+                )
         }
     }
 
