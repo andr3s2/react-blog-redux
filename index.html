@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.19.0/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.min.js"></script>
+
+
+<script type="text/babel">
+
+
+    class MiComponente extends React.Component {
+
+        constructor(props) {
+            super(props);
+            this.state = {
+                count: 0
+            };
+            this.handleClick = this.handleClick.bind(this);
+        }
+
+        handleClick(){
+                this.setState({count: this.state.count+1});
+        }
+
+        render() {
+            const name = this.props.name;
+            return (<h1 id="title" onClick={this.handleClick}> Hola, {name} {this.state.count} </h1>);
+        }
+    }
+
+    ReactDOM.render(<MiComponente name="andres" />,document.getElementById('app'));
+
+
+
+
+</script>
+
+</body>
+</html>
+
